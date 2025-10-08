@@ -73,39 +73,6 @@
                 </div>
             </div>
 
-            <!-- Villes récemment consultées -->
-            <div class="card">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg md:text-2xl font-bold text-gray-800">Villes récemment consultées</h3>
-                    <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-600" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <div class="space-y-2 md:space-y-3">
-                    <div v-for="(fav, index) in recentCities" :key="fav.name"
-                        class="flex items-center justify-between p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
-                        <div class="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
-                            <div
-                                class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
-                                {{ index + 1 }}
-                            </div>
-                            <img :src="`https://openweathermap.org/img/wn/${fav.icon}@2x.png`" :alt="fav.description"
-                                class="w-10 h-10 md:w-12 md:h-12 flex-shrink-0" />
-                            <div class="min-w-0 flex-1">
-                                <h4 class="font-bold text-base md:text-lg text-gray-800 truncate">{{ fav.name }}</h4>
-                                <p class="text-xs md:text-sm text-gray-600 capitalize truncate">{{ fav.description }}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="text-right flex-shrink-0 ml-2">
-                            <div class="text-xl md:text-2xl font-bold text-gray-800">{{ fav.temp }}°C</div>
-                            <div class="text-xs text-gray-600">{{ getTimeAgo(fav.addedAt) }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Conditions météo les plus fréquentes -->
             <div class="card">
@@ -142,6 +109,40 @@
                 <canvas ref="chartCanvas" class="max-h-64 md:max-h-80"></canvas>
             </div>
         </template>
+
+
+        <!-- Villes récemment consultées -->
+        <div class="card">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg md:text-2xl font-bold text-gray-800">Villes récemment consultées</h3>
+                <svg class="w-5 h-5 md:w-6 md:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div class="space-y-2 md:space-y-3">
+                <div v-for="(fav, index) in recentCities" :key="fav.name"
+                    class="flex items-center justify-between p-3 md:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                    <div class="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+                        <div
+                            class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm md:text-base">
+                            {{ index + 1 }}
+                        </div>
+                        <img :src="`https://openweathermap.org/img/wn/${fav.icon}@2x.png`" :alt="fav.description"
+                            class="w-10 h-10 md:w-12 md:h-12 flex-shrink-0" />
+                        <div class="min-w-0 flex-1">
+                            <h4 class="font-bold text-base md:text-lg text-gray-800 truncate">{{ fav.name }}</h4>
+                            <p class="text-xs md:text-sm text-gray-600 capitalize truncate">{{ fav.description }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text-right flex-shrink-0 ml-2">
+                        <div class="text-xl md:text-2xl font-bold text-gray-800">{{ fav.temp }}°C</div>
+                        <div class="text-xs text-gray-600">{{ getTimeAgo(fav.addedAt) }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
