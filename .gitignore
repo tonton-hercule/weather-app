@@ -1,4 +1,6 @@
-# Logs
+# ===================================================================
+# Fichiers de Log et de débogage
+# ===================================================================
 logs
 *.log
 npm-debug.log*
@@ -7,18 +9,65 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
+# ===================================================================
+# Dépendances et cache local
+# ===================================================================
 node_modules
+.pnpm-store
+.npm
+.cache
+
+
+# ===================================================================
+# Dossiers de build
+# Ignorer les fichiers générés lors de la compilation
+# ===================================================================
 dist
 dist-ssr
-*.local
+.output  # Pour Nuxt
+.nuxt    # Pour Nuxt
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+
+# ===================================================================
+# Fichiers d'environnement locaux
+# Ne jamais versionner les secrets !
+# Il est recommandé de versionner un fichier .env.example
+# ===================================================================
+.env.local
+.env.*.local
+.env
+
+
+# ===================================================================
+# Fichiers générés par les outils de développement
+# (Vite, Outils de test, etc.)
+# ===================================================================
+coverage
+.nyc_output
+.vite-inspect/
+
+
+# ===================================================================
+# Fichiers système et de l'éditeur de code
+# ===================================================================
+# macOS
 .DS_Store
+
+# VS Code
+.vscode/*
+# Ne pas ignorer ces fichiers pour partager la configuration avec l'équipe
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains (WebStorm, etc.)
+.idea
+
+# Vim
+*.sw?
+
+# Visual Studio
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
