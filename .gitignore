@@ -32,7 +32,6 @@ dist-ssr
 # ===================================================================
 # Fichiers d'environnement locaux
 # Ne jamais versionner les secrets !
-# Il est recommandé de versionner un fichier .env.example
 # ===================================================================
 .env.local
 .env.*.local
